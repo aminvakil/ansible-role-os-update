@@ -36,6 +36,7 @@
     - name: Debian & Ubuntu grep upgrades
       shell: grep -E "^$(date +%Y-%m-%d).+ (install|upgrade) " /var/log/dpkg.log |cut -d " " -f 3-5
       register: result
+      changed_when: false
 
     - name: Debian & Ubuntu show upgrades
       debug: msg="{{ result.stdout_lines }}"
