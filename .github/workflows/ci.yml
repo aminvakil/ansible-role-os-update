@@ -78,7 +78,7 @@ jobs:
           MOLECULE_PLAYBOOK: ${{ matrix.playbook }}
 
   deploy:
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     needs: [lint, molecule]
     name: Push to Galaxy
     runs-on: ubuntu-latest
