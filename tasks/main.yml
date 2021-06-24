@@ -22,7 +22,7 @@
 
     - name: CentOS show upgrades
       debug: msg="{{ result.stdout_lines }}"
-  when: ansible_distribution == 'CentOS'
+  when: ansible_distribution in ['CentOS', 'Rocky']
 
 
 - block:
