@@ -1,5 +1,6 @@
+---
 skip_list:
-  - '403' # Package installs should not use latest
-  - '305' # Use shell only when shell functionality is required
+  - '403'  # Package installs should not use latest
+  - '305'  # Use shell only when shell functionality is required
 warn_list:
   - yaml
