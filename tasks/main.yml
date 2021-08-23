@@ -17,7 +17,7 @@
       shell: rpm -qa --last | grep "$(date +%a\ %d\ %b\ %Y)" |cut -f 1 -d " "
       register: result
       args:
-        warn: no
+        warn: false
       changed_when: false
 
     - name: CentOS / Rocky show upgrades
@@ -28,7 +28,7 @@
 - block:
     - name: Debian & Ubuntu upgrade all packages
       apt:
-        update_cache: yes
+        update_cache: true
         upgrade: dist
         force_apt_get: true
       register: result
