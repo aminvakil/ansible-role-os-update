@@ -1,5 +1,6 @@
 ---
-- block:
+- name: CentOS / Rocky Upgrade
+  block:
     - name: CentOS 7 upgrade all packages
       yum:
         name: "*"
@@ -25,7 +26,8 @@
   when: ansible_distribution in ['CentOS', 'Rocky']
 
 
-- block:
+- name: Debian / Ubuntu Upgrade
+  block:
     - name: Debian & Ubuntu upgrade all packages
       apt:
         update_cache: true
