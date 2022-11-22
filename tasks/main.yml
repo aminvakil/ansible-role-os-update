@@ -17,9 +17,9 @@
     - name: CentOS / Rocky grep upgrades
       shell: rpm -qa --last | grep "$(date +%a\ %d\ %b\ %Y)" |cut -f 1 -d " "
       register: result
-      args:
-        warn: false
       changed_when: false
+      tags:
+        - skip_ansible_lint
 
     - name: CentOS / Rocky show upgrades
       debug:
