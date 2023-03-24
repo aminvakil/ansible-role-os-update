@@ -39,7 +39,7 @@
     - name: Debian & Ubuntu grep upgrades
       shell: |
         set -o pipefail
-        grep -E "^$(date +%Y-%m-%d).+ (install|upgrade) " /var/log/dpkg.log |cut -d " " -f 3-5
+        grep -E "^$(date +%Y-%m-%d).+ (install|upgrade) " /var/log/dpkg.log || true |cut -d " " -f 3-5
       register: result
       changed_when: false
 
