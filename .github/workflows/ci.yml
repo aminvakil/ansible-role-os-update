@@ -44,6 +44,7 @@ jobs:
         include:
           - distro: rockylinux8
           - distro: centos7
+          - distro: debian12
           - distro: debian11
           - distro: debian10
           - distro: ubuntu22.04
