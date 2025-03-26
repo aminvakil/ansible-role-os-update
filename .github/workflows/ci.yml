@@ -46,7 +46,6 @@ jobs:
           - distro: debian11
           - distro: ubuntu24.04
           - distro: ubuntu22.04
-          - distro: ubuntu20.04
 
     steps:
       - name: Check out the codebase.
