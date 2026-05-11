@@ -5,14 +5,14 @@
       yum:
         name: "*"
         state: latest
-      when: ansible_distribution_major_version == '7'
+      when: ansible_facts["distribution_major_version"] == '7'
 
     - name: CentOS / Rocky 8 upgrade all packages
       shell: dnf update -y --nobest
       register: result
       changed_when:
         - '"Nothing to do" not in result.stdout'
-      when: ansible_distribution_major_version == '8'
+      when: ansible_facts["distribution_major_version"] == '8'
 
     - name: CentOS / Rocky grep upgrades
       shell: rpm -qa --last | grep "$(date +%a\ %d\ %b\ %Y)" |cut -f 1 -d " "
@@ -24,7 +24,7 @@
     - name: CentOS / Rocky show upgrades
       debug:
         msg: "{{ result.stdout_lines }}"
-  when: ansible_distribution in ['CentOS', 'Rocky']
+  when: ansible_facts["distribution"] in ['CentOS', 'Rocky']
 
 
 - name: Debian / Ubuntu Upgrade
@@ -48,4 +48,4 @@
     - name: Debian & Ubuntu show upgrades
       debug:
         msg: "{{ result.stdout_lines }}"
-  when: ansible_distribution in ['Debian', 'Ubuntu']
+  when: ansible_facts["distribution"] in ['Debian', 'Ubuntu']
